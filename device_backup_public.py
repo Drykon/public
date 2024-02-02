@@ -48,7 +48,7 @@ passWord = passByte.decode('utf-8')
 
 # Device dictionary
 # Create a new entry for each device you manage.
-# change the fields accordingly.
+# Change the fields accordingly.
 
 # Device 1
 dev1 = {
@@ -94,7 +94,7 @@ devBase = '[B:ase\\folder\\for\\backups\\]'
 # Set path to DiffTempFolder
 DIFFpath = devBase + '\\DiffTempFolder\\'
 
-# Set path to logging error files
+# Set path for logging error files
 ERRpath = devBase + '\\Logs\\'
 
 # Set path to use as the UNC path for links in emails
@@ -121,9 +121,6 @@ if not path.exists(DIFFpath):
     mkdir(DIFFpath)
 if not path.exists(ERRpath):
     mkdir(ERRpath)
-
-# Set run time for the entire script
-RunT = time.strftime('%Y-%m-%d--%H%M%S')
 
 
 # Entry point
