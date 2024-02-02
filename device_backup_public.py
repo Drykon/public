@@ -89,7 +89,7 @@ RunT = time.strftime('%Y-%m-%d--%H%M%S')
 diffdate = time.strftime('%Y-%m-%d')
 
 # Base folder for saving backups
-devBase = '[B:ase\\folder\\for\\backups\\]'
+devBase = 'B:ase\\folder\\for\\backups\\'
 
 # Set path to DiffTempFolder
 DIFFpath = devBase + '\\DiffTempFolder\\'
@@ -107,7 +107,7 @@ uncPath = r"\\SERVER_NAME\DeviceBackups"
 # Set Variable to check for diffing
 DiffCheck = 0
 
-# Set Variable to check for error
+# Set Variable to check for errors
 ErrCheck = 0
 
 # Setting diff file parameters
@@ -127,6 +127,8 @@ if not path.exists(ERRpath):
 if __name__ == '__main__':
 
     # For loop to run commands per device
+    # Add the other entries of your dictionary here
+    # Example:  for device in (dev1, dev2, dev3):
     for device in (dev1, dev2):
 
        # Set variable for detecting like devices
@@ -134,17 +136,19 @@ if __name__ == '__main__':
 
 
         # Execute below script if DeviceType matches a Cisco based OS
+        # Other device type can be used as well
+        # Info on device types can be found in the Netmiko documentation
         if DeviceType == 'cisco_ios' or DeviceType == 'cisco_nxos' or DeviceType == 'cisco_xe' or DeviceType == 'cisco_asa' or DeviceType == 'dell_force10':
 
             try:
 
-                # Connection to device and print the prompt
+                # Connection to device
                 net_connect = Netmiko(**device)
                 # Print device name to terminal
                 print('\n' + net_connect.find_prompt())
 
 
-                # Run command(s)
+                # Run command(s) and save output to variable
                 CISCOoutput1 = net_connect.send_command(CISCOcommand1)
                 CISCOoutput2 = net_connect.send_command(CISCOcommand2)
                 
