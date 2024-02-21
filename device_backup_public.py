@@ -2,7 +2,7 @@
 Script for backing up Cisco devices.
 Then the backups are compared against the last backup taken and diffed.
 Script must be run at least twice for the diffing to work so there is something to diff against.
-The first run may show an error since there is no previous file for caomparison.
+The first run may show an error since there is no previous file for comparison.
 The password is stored in the script as a HASH. This is NOT encrpytion.
 Consider writing a way to pull from a password vault instead.
 All usage of this file is at your own risk. You've been warned.
