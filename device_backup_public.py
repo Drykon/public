@@ -42,7 +42,7 @@ def convert(string):
     return listv
 
 
-
+# Using keyring to pull the credentials out of the local cred store and save as x
 x = keyring.get_credentials("[name of cred stored in local cred store]","")
 
 
@@ -152,6 +152,9 @@ if __name__ == '__main__':
                 # Run command(s) and save output to variable
                 ciscoOutput1 = net_connect.send_command(ciscoCommand1)
                 ciscoOutput2 = net_connect.send_command(ciscoCommand2)
+
+                # Disconnect from the session
+                net_connect.disconnect()
                 
                 # Set run time for loop iteration
                 timestr = time.strftime('%Y-%m-%d--%H%M%S')
@@ -162,9 +165,6 @@ if __name__ == '__main__':
                 find_ciscoHostname3 = find_ciscoHostname2.replace('/sec/act','')
                 find_ciscoHostname4 = find_ciscoHostname3.replace('#','')
                 ciscoHostname = find_ciscoHostname4.replace('/admin','')
-                
-                # Disconnect from the session
-                net_connect.disconnect()
             
                 # Create folder path based on hostname
                 ciscoPath = devBase + ciscoHostname + '\\'
