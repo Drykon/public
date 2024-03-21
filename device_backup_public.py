@@ -5,8 +5,9 @@ Once the diff is done if there are changes found an HTML report.
 The HTML report is then emailed to what is defined in toEmailAddress
 Script must be run at least twice for the diffing to work so there is something to diff against.
 The first run may show an error since there is no previous file for comparison.
-The password is stored in the script as a HASH. This is NOT encrpytion.
-Consider writing a way to pull from a password vault instead.
+Keyring is being used to pull creds saved in the local cred store. Do reasearch for
+finding the specifics per each operating system, PC = Windows Credential Manager,
+Mac = keychain, etc.
 All usage of this file is at your own risk. You've been warned.
 """
 
@@ -29,9 +30,9 @@ import smtplib
 # Import Netmiko for Cisco device connections
 from netmiko import Netmiko
 
+# Import keyring to pull passwords from the local cred store
+from keyring
 
-# Hased password in Base64
-passHASH = b'HASH'
 
 
 
@@ -42,9 +43,7 @@ def convert(string):
 
 
 
-# Unhash password and store
-passByte = base64.b64decode(passHASH)
-passWord = passByte.decode('utf-8')
+x = keyring.get_credentials("[name of cred stored in local cred store]","")
 
 
 
@@ -55,16 +54,16 @@ passWord = passByte.decode('utf-8')
 # Device 1
 dev1 = {
     'host': 'IP or hostname of dev1',
-    'username': 'username',
-    'password': passWord,
+    'username': x.username,
+    'password': x.passWord,
     'device_type': 'cisco_nxos',
 }
 
 # Device 2
 dev2 = {
     'host': 'IP or hostname of dev2',
-    'username': 'username',
-    'password': passWord,
+    'username': x.username,
+    'password': x.passWord,
     'device_type': 'cisco_ios',
 }
 
