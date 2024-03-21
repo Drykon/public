@@ -86,7 +86,7 @@ emailServer = 'Email server hostname or IP'
 emailServerPort = '25'
 
 # Create time string outside loop
-RunT = time.strftime('%Y-%m-%d--%H%M%S')
+runT = time.strftime('%Y-%m-%d--%H%M%S')
 diffdate = time.strftime('%Y-%m-%d')
 
 # Base folder for saving backups
