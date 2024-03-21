@@ -51,7 +51,7 @@ x = keyring.get_credentials("[name of cred stored in local cred store]","")
 # Create a new entry for each device you manage.
 # Change the fields accordingly.
 
-# Device 1
+# Device 1 Nexus example
 dev1 = {
     'host': 'IP or hostname of dev1',
     'username': x.username,
@@ -59,7 +59,7 @@ dev1 = {
     'device_type': 'cisco_nxos',
 }
 
-# Device 2
+# Device 2 IOS example
 dev2 = {
     'host': 'IP or hostname of dev2',
     'username': x.username,
