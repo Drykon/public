@@ -180,7 +180,7 @@ if __name__ == '__main__':
                 ios_filelistTXT = ios_filelist3.replace("*]","")
                 
                 #Convert dir results to a list
-                ios_filelist = (convert(ios_filelistTXT))
+                ios_filelist = convert(ios_filelistTXT)
 
                 # Remove all entries in the list except ones that contain entries listed in ""
                 ios_filelist_running = [ x for x in ios_filelist if "--running_config--" in x ]
