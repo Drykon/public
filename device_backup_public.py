@@ -15,9 +15,6 @@ All usage of this file is at your own risk. You've been warned.
 # Import time module for appending timestamps to files
 import time
 
-# Import Base64 for password hashing
-import base64
-
 # Import mkdir and path from OS for folder structure manipulation
 from os import mkdir, path, popen
 
